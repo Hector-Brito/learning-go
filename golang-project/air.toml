@@ -1,0 +1,48 @@
+# Archivo de configuración para Air
+# https://github.com/air-verse/air
+
+root = "."
+tmp_dir = "tmp"
+
+[build]
+# cmd = "go build -o ./tmp/main ."
+cmd = "go build -o {{.TempDir}}/main ." # Ruta de compilación, donde se crea el ejecutable
+bin = "tmp/main" # Ruta del ejecutable compilado por Air
+# args = ["-s"] # Argumentos a pasar al ejecutable
+# full_bin = "APP_ENV=development {{.TempDir}}/main -s" # Comando completo para ejecutar
+
+delay = 1000 # Retraso en milisegundos antes de reiniciar
+exclude_dir = ["assets", "tmp", "vendor", "node_modules"] # Directorios a ignorar
+include_dir = [] # Directorios a incluir explícitamente
+
+# exclude_file = [] # Archivos a ignorar
+# include_file = [] # Archivos a incluir explícitamente
+# exclude_regex = ["_test.go"] # Expresiones regulares para excluir archivos
+# include_regex = [] # Expresiones regulares para incluir archivos
+
+follow_symlink = false # Seguir enlaces simbólicos
+log = "build-errors.log" # Archivo para registrar errores de compilación
+# legacy_auto_install = true # Para versiones antiguas de Go, permite la instalación automática de dependencias
+
+[run]
+# Arquitectura y sistema operativo
+# Si tu aplicación necesita valores específicos, puedes definirlos aquí.
+# Por ejemplo, para ARM en Linux:
+# arch = "arm"
+# os = "linux"
+
+# Env = ["APP_ENV=development"] # Variables de entorno
+# Habilitar/deshabilitar salida de depuración
+debug = true 
+
+# build_delay = 200 # Retraso adicional antes de construir
+# build_errors_file = "build-errors.log" # Archivo para errores de construcción (ya definido arriba)
+
+# build_tags = [""] # Etiquetas de construcción para Go
+# CGO_ENABLED = 0 # Deshabilitar CGO si no lo necesitas
+
+# main = "./main.go" # Archivo principal a ejecutar (si no se usa cmd)
+
+# watch = true # Monitorear cambios en archivos (generalmente habilitado por defecto)
+# watch_exts = ["go", "tpl", "tmpl", "html", "css", "js"] # Extensiones de archivo a monitorear
+# watch_exec = [] # Comandos a ejecutar cuando se detectan cambios
